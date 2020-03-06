@@ -68,7 +68,7 @@
 
   <properties>
     <polopoly.version>10.18.2-fp1</polopoly.version>
-    <camel.version>2.13.2</camel.version>
+    <camel.version>3.1.0</camel.version>
     <spring.version>4.1.0.RELEASE</spring.version>
     <desk.version>2.11.1</desk.version>
   </properties>
