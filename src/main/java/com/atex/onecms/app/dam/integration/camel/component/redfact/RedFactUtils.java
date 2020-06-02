@@ -133,6 +133,7 @@ public class RedFactUtils {
         params.add(new BasicNameValuePair("category", "2014")); // fixed
         params.add(new BasicNameValuePair("status", "pu_all#wo_0")); // fixed
         // end fixed
+        params.add(new BasicNameValuePair("is_paid_content", Boolean.toString(damArticle.isPremiumContent())));
 
         params.add(new BasicNameValuePair("name",getStructuredText(damArticle.getHeadline())));
         params.add(new BasicNameValuePair("editor_teaser",getStructuredText(damArticle.getLead())));
