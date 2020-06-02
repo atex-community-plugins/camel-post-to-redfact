@@ -133,7 +133,10 @@ public class RedFactUtils {
         params.add(new BasicNameValuePair("category", "2014")); // fixed
         params.add(new BasicNameValuePair("status", "pu_all#wo_0")); // fixed
         // end fixed
-        params.add(new BasicNameValuePair("is_paid_content", Boolean.toString(damArticle.isPremiumContent())));
+
+        // If the checkbox "Zahlungspflichtig" is checked, the value "is_paid_content" should be "1"
+        // (and "0" or non-existent if not).
+        params.add(new BasicNameValuePair("is_paid_content", damArticle.isPremiumContent() ? "1" : "0"));
 
         params.add(new BasicNameValuePair("name",getStructuredText(damArticle.getHeadline())));
         params.add(new BasicNameValuePair("editor_teaser",getStructuredText(damArticle.getLead())));
