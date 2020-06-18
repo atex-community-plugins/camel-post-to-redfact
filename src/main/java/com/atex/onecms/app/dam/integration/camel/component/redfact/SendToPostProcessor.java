@@ -9,6 +9,7 @@ import com.atex.onecms.app.dam.util.DamEngagementUtils;
 import com.atex.onecms.app.dam.workflow.WFStatusBean;
 import com.atex.onecms.app.dam.workflow.WFStatusListBean;
 import com.atex.onecms.app.dam.workflow.WebContentStatusAspectBean;
+import com.atex.onecms.changelist.api.ChangeEvent;
 import com.atex.onecms.content.*;
 import com.atex.onecms.content.repository.ContentModifiedException;
 import com.google.common.base.Predicate;
@@ -121,7 +122,10 @@ public class SendToPostProcessor implements Processor, ApplicationOnAfterInitEve
             if (exchange.getIn().getBody() instanceof String) {
                 contentIdString = getContentId(exchange);
             }
-            else {
+            else if (exchange.getIn().getBody() instanceof ChangeEvent) {
+                ChangeEvent changeEvent = (ChangeEvent) exchange.getIn().getBody();
+                contentIdString = changeEvent.getContentId();
+            } else {
                 contentIdString = exchange.getIn().getHeader("contentId", ContentId.class).getKey();
             }
 
