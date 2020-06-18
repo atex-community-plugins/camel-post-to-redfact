@@ -245,8 +245,8 @@ public class RedFactUtils {
         params.add(new BasicNameValuePair("url_bild_org",url));
         if (coordinates != null) {
             params.add(new BasicNameValuePair("x1", Integer.toString(coordinates.getX1())));
-            params.add(new BasicNameValuePair("x2", Integer.toString(coordinates.getX2())));
             params.add(new BasicNameValuePair("y1", Integer.toString(coordinates.getY1())));
+            params.add(new BasicNameValuePair("x2", Integer.toString(coordinates.getX2())));
             params.add(new BasicNameValuePair("y2", Integer.toString(coordinates.getY2())));
         }
 
