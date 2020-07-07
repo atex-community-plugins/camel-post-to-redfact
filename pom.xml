@@ -73,29 +73,7 @@
     <desk.version>2.12.0</desk.version>
   </properties>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>com.atex.gong</groupId>
-        <artifactId>onecms-custom-source</artifactId>
-        <version>${polopoly.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.atex</groupId>
-        <artifactId>module-desk</artifactId>
-        <version>${desk.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.polopoly</groupId>
-        <artifactId>polopoly</artifactId>
-        <version>${polopoly.version}</version>
-        <classifier>api</classifier>
-        <type>jar</type>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
   <dependencies>
-
     <dependency>
       <groupId>com.polopoly</groupId>
       <artifactId>polopoly</artifactId>
