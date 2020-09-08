@@ -89,14 +89,6 @@
     </dependency>
 
     <dependency>
-      <groupId>com.polopoly</groupId>
-      <artifactId>polopoly</artifactId>
-      <version>${polopoly.version}</version>
-      <classifier>api</classifier>
-      <type>jar</type>
-    </dependency>
-
-    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
       <version>${camel.version}</version>
