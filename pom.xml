@@ -97,13 +97,6 @@
     </dependency>
 
     <dependency>
-      <groupId>com.atex.adm.packaged</groupId>
-      <artifactId>onecms-custom-beans</artifactId>
-      <version>2.5.0-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
       <version>${camel.version}</version>
