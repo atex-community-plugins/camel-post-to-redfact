@@ -79,19 +79,28 @@ public class RedFactUtils {
         for (ContentId image : images) {
             ContentVersionId contentVersionId = contentManager.resolve(image, Subject.NOBODY_CALLER);
             ContentResult<OneImageBean> imageBean = contentManager.get(contentVersionId, OneImageBean.class, Subject.NOBODY_CALLER);
-            OneImageBean damImage = imageBean.getContent().getContentData();
-
-            // calculate url the redfact uses to get to the sftp store
-            String redfactImageUrl = redFactConfig.getExternalImageStoreUrl() + "/" + contentVersionId.getContentId().getKey();
-            redfactImageUrl = tidyUrl(redfactImageUrl);
 
             Content<OneImageBean> content = imageBean.getContent();
-            Aspect imageEditAspect = content.getAspect("atex.ImageEditInfo");
+            ImageInfoAspectBean imageInfoAspectBean = content.getAspectData(ImageInfoAspectBean.ASPECT_NAME);
 
+            if (imageInfoAspectBean == null ||
+                    imageInfoAspectBean.getHeight() == 0 || imageInfoAspectBean.getWidth() == 0 ||
+                    imageInfoAspectBean.getFilePath() == null || imageInfoAspectBean.getFilePath().length() == 0) {
+                // there are missing image width / height or file associated with this image
+                continue;
+            }
+
+            OneImageBean damImage = imageBean.getContent().getContentData();
+
+            Aspect imageEditAspect = content.getAspect(ImageEditInfoAspectBean.ASPECT_NAME);
             ImageEditInfoAspectBean imageEditInfo = null;
             if (imageEditAspect != null) {
                 imageEditInfo = (ImageEditInfoAspectBean) imageEditAspect.getData();
             }
+
+            // calculate url the redfact uses to get to the sftp store
+            String redfactImageUrl = redFactConfig.getExternalImageStoreUrl() + "/" + contentVersionId.getContentId().getKey();
+            redfactImageUrl = tidyUrl(redfactImageUrl);
 
             ImageInfoAspectBean ii = (ImageInfoAspectBean) content.getAspect(ImageInfoAspectBean.ASPECT_NAME).getData();
 
