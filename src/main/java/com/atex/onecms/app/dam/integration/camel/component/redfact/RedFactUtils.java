@@ -102,7 +102,7 @@ public class RedFactUtils {
 
                 if (crop != null) {
                     Rectangle rect = crop.getCropRectangle();
-                    coordinates = new RedFactCropCoordinates(rect.getX(),rect.getY(),rect.getX()+rect.getWidth(), rect.getY()+rect.getHeight());
+                    coordinates = new RedFactCropCoordinates(rect.getX(),rect.getX()+rect.getWidth(), rect.getY(), rect.getY()+rect.getHeight());
                 }
             }
 
